@@ -1,0 +1,34 @@
+stonkCoin
+
+Resource management game involving the mining of the fictional stonkCoin
+
+
+Development plan:
+    1. [] Get mint-coin-button to add coins to wallet.
+    2. [] ...
+
+
+
+Components:
+
+App
+    mint-coin-button
+    wallet
+    gpu
+
+    Statistics
+        coin-market-value
+        cost-to-minting ("price of electricity")
+        coins-mined-counter
+    
+        MiningMachine
+            gpu-name
+            hashrate-multiplier
+            sell-gpu-button
+        
+        MarketplaceListingsContainer
+            gpu-name
+            hashrate-multiplier
+            buy-gpu-button
+
+Data kept in state:
