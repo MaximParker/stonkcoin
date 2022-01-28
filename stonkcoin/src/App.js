@@ -9,7 +9,7 @@ function App() {
   let [wallet, mintCoin] = useState(0);
   let [marketValueMultiplier, setMarketValue] = useState(0.01);
   let [resourcesObj, setResources] = useState({
-    gpus: [{ name: "superVideo 90", hashrate: 1, value: 5 }],
+    gpus: [{ name: "superVideo 90", hashrate: 1, value: 5 }, { name: "VidEon Saturn V", hashrate: 1, value: 5 }],
   });
   let [marketListings, setMarketListings] = useState(mintTally);
 
@@ -40,13 +40,6 @@ function App() {
       <header className="App-header">
         <h1>StonkCoin</h1>
       </header>
-
-      <Stats
-        mintTally={mintTally}
-        wallet={wallet}
-        marketValueMultiplier={marketValueMultiplier}
-      />
-
       <button
         onClick={() => {
           setMintTally(
@@ -64,14 +57,20 @@ function App() {
           );
           setMarketListings((currentListings) => {
             // Fix this
-          })
+          });
         }}
       >
         MINE COINS!
       </button>
-
-      <Resources resources={resourcesObj} />
-      <Marketplace resources={resourcesObj} marketListings={marketListings} />
+      <div className="info-container">
+        <Stats
+          mintTally={mintTally}
+          wallet={wallet}
+          marketValueMultiplier={marketValueMultiplier}
+        />
+        <Resources resources={resourcesObj} />
+        <Marketplace resources={resourcesObj} marketListings={marketListings} />
+      </div>
     </div>
   );
 }

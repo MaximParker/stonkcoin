@@ -1,7 +1,7 @@
 export const Resources = ({ resources }) => {
   return (
-    <div>
-      <h2>Resources:</h2>
+    <div id="resources-block">
+      <h2>Resources</h2>
       <ul>
         {resources.gpus.map((card) => {
           return (
