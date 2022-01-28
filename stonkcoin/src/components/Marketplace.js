@@ -1,5 +1,8 @@
+import { useState, useEffect } from "react";
+
 export const Marketplace = ({ resources, mintTally }) => {
-  let milestone = 10;
+  const [mileStone, setMilestone] = useState(10);
+  const [listings, setListings] = useState([]);
 
   let catalogue = [
     { name: "FastVideo 4K", hashrate: 1, value: 100 },
@@ -11,16 +14,24 @@ export const Marketplace = ({ resources, mintTally }) => {
     { name: "VFX Inferno", hashrate: 50, value: 3500 },
   ];
 
-  let listings = [];
+  
 
   let listingsMultiplier = 1;
 
-  if (mintTally >= milestone) {
-    listings.push(catalogue.shift());
-    milestone += milestone * 4;
-  }
+  console.log(mintTally, 'mint tallyyyy')
+  useEffect(() => { 
+    if (mintTally >= mileStone) {
+     //setListings((currListing) => currListing) listings.push(catalogue.shift());
+     const listingsCopy = [...listings]
+     listingsCopy.push(catalogue.shift())
+     setListings(listingsCopy)
+      setMilestone(() => 50)
+      console.log(mileStone, 'here is milestone')
+    }
+  }, [mintTally])
+  
 
-  console.log("[in Marketplace] mintTally:", mintTally, "milestone needed:", milestone, "listings:", listings);
+  //console.log("[in Marketplace] mintTally:", mintTally, "milestone needed:", mileStone, "listings:", listings);
 
   return (
     <div id="marketplace-block">

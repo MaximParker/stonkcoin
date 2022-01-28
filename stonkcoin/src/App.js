@@ -12,6 +12,8 @@ function App() {
   let [resourcesObj, setResources] = useState({
     gpus: [{ name: "superVideo 90", hashrate: 1, value: 5 }, { name: "VidEon Saturn V", hashrate: 1, value: 5 }],
   });
+  const [newSlogan, setNewSlogan] = useState('The coiniest coin ever minted!');
+
 
   function getRandomInRange(min, max) {
     return Math.random() * (max - min) + min;
@@ -27,7 +29,7 @@ function App() {
 
   return (
     <div className="App">
-      < Header slogan={"The coiniest coin ever minted"} />
+      < Header />
       <button
         onClick={() => {
           setMintTally(
