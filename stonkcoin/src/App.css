@@ -11,10 +11,13 @@ body {
   height: 90vh;
 }
 
-h1 {
+header {
   color: white;
   text-align: left;
-  margin: 1em;
+  margin: 2em;
+}
+
+h1 {
   font-size: 2em;
 }
 
