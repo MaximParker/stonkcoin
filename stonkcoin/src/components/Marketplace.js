@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 export const Marketplace = ({ resources, mintTally }) => {
   const [mileStone, setMilestone] = useState(10);
   const [listings, setListings] = useState([]);
+  const [mileStoneIndex, setMileStoneIndex] = useState(0)
 
   let catalogue = [
     { name: "FastVideo 4K", hashrate: 1, value: 100 },
@@ -23,10 +24,14 @@ export const Marketplace = ({ resources, mintTally }) => {
     if (mintTally >= mileStone) {
      //setListings((currListing) => currListing) listings.push(catalogue.shift());
      const listingsCopy = [...listings]
-     listingsCopy.push(catalogue.shift())
+     if (listingsCopy.length < 3) {
+     listingsCopy.push(catalogue[mileStoneIndex])
+     }
+     setMileStoneIndex((currMileStoneIndex) => currMileStoneIndex + 1)
      setListings(listingsCopy)
-      setMilestone(() => 50)
+      setMilestone((currMileStone) => currMileStone * 2)
       console.log(mileStone, 'here is milestone')
+      console.log(mileStoneIndex, 'indexxx')
     }
   }, [mintTally])
   
