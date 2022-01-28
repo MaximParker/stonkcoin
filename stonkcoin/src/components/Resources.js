@@ -1,7 +1,7 @@
-export const Resources = ({ resources }) => {
+export const Resources = ({ resources, totalHashrate }) => {
   return (
     <div id="resources-block">
-      <h2>Resources</h2>
+      <h2>Resources ({resources.gpus.length})</h2>
       <ul>
         {resources.gpus.map((card) => {
           return (
@@ -13,6 +13,7 @@ export const Resources = ({ resources }) => {
           );
         })}
       </ul>
+      Hashrate: <strong>{totalHashrate}</strong> coin/click
     </div>
   );
 };
